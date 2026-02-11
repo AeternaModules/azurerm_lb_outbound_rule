@@ -11,7 +11,7 @@ resource "azurerm_lb_outbound_rule" "lb_outbound_rules" {
   tcp_reset_enabled        = each.value.tcp_reset_enabled
 
   dynamic "frontend_ip_configuration" {
-    for_each = each.value.frontend_ip_configuration != null ? [each.value.frontend_ip_configuration] : []
+    for_each = each.value.frontend_ip_configuration != null ? each.value.frontend_ip_configuration : []
     content {
       name = frontend_ip_configuration.value.name
     }
