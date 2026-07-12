@@ -1,3 +1,7 @@
+output "lb_outbound_rules_id" {
+  description = "Map of id values across all lb_outbound_rules, keyed the same as var.lb_outbound_rules"
+  value       = { for k, v in azurerm_lb_outbound_rule.lb_outbound_rules : k => v.id }
+}
 output "lb_outbound_rules_allocated_outbound_ports" {
   description = "Map of allocated_outbound_ports values across all lb_outbound_rules, keyed the same as var.lb_outbound_rules"
   value       = { for k, v in azurerm_lb_outbound_rule.lb_outbound_rules : k => v.allocated_outbound_ports }
