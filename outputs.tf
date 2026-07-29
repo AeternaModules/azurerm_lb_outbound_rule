@@ -10,10 +10,6 @@ output "lb_outbound_rules_backend_address_pool_id" {
   description = "Map of backend_address_pool_id values across all lb_outbound_rules, keyed the same as var.lb_outbound_rules"
   value       = { for k, v in azurerm_lb_outbound_rule.lb_outbound_rules : k => v.backend_address_pool_id if v.backend_address_pool_id != null && length(v.backend_address_pool_id) > 0 }
 }
-output "lb_outbound_rules_enable_tcp_reset" {
-  description = "Map of enable_tcp_reset values across all lb_outbound_rules, keyed the same as var.lb_outbound_rules"
-  value       = { for k, v in azurerm_lb_outbound_rule.lb_outbound_rules : k => v.enable_tcp_reset if v.enable_tcp_reset != null }
-}
 output "lb_outbound_rules_frontend_ip_configuration" {
   description = "Map of frontend_ip_configuration values across all lb_outbound_rules, keyed the same as var.lb_outbound_rules"
   value       = { for k, v in azurerm_lb_outbound_rule.lb_outbound_rules : k => v.frontend_ip_configuration if v.frontend_ip_configuration != null && length(v.frontend_ip_configuration) > 0 }

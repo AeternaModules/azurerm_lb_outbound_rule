@@ -6,7 +6,6 @@ resource "azurerm_lb_outbound_rule" "lb_outbound_rules" {
   name                     = each.value.name
   protocol                 = each.value.protocol
   allocated_outbound_ports = each.value.allocated_outbound_ports
-  enable_tcp_reset         = each.value.enable_tcp_reset
   idle_timeout_in_minutes  = each.value.idle_timeout_in_minutes
   tcp_reset_enabled        = each.value.tcp_reset_enabled
 
